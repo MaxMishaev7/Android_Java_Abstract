@@ -1,7 +1,7 @@
 package ru.mishaev.max;
 
 public class CreditAccount extends Account {
-    private long limit;
+    private final long limit;
 
     // кредитный счёт, который может уходить в минус 
     // до кредитного лимита, указанного в конструкторе, 
@@ -13,6 +13,7 @@ public class CreditAccount extends Account {
         } else {
             this.limit = -10000; // если в конструкторе указан 0, то назначаем кредитный лимит по умолчанию
         }
+        this.amount = 0;
     }    
 
     public boolean add(long amount) {
@@ -36,6 +37,9 @@ public class CreditAccount extends Account {
     }
 
     public long getBalance() {
-        return ;
+        return this.amount;
     }
 }
+
+// javac -d out -cp src src/Main.java src/ru/mishaev/max/*
+// java -cp out Main
